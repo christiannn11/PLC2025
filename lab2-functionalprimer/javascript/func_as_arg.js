@@ -1,7 +1,10 @@
 //Create list of ints from 1 to 5, Haskell equivalent [1..5]
+let a = 1;
+let b = 5;
+
 function arrFunc(){
     let arr = [];
-    for (let i = 1; i<=5; i++) {
+    for (let i = a; i<=b; i++) {
         arr.push(i);
     }
     return arr;    

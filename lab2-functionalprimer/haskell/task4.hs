@@ -1,14 +1,15 @@
-ask :: String -> IO ()
-ask prompt =
+ask prompt x = 
   do
-  putStrLn prompt
+  let new = prompt ++ replicate x '!' 
+  putStrLn new 
   line <- getLine
   if line == ""
-    then ask prompt
-    else putStrLn ("you said: " ++ reverse line)
+    then ask prompt (x + 1) 
+    else if line == "quit"
+      then putStrLn "quitting..."
+      else putStrLn ("you said: '" ++ reverse line ++ "' in reverse") 
 
-main :: IO ()
-main =
+main = 
   do
   let prompt = "please say something"
-  ask prompt
+  ask prompt 0 

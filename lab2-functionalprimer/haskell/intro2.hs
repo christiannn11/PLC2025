@@ -21,7 +21,7 @@ prg1' = sequence_ [print "hello ", print name]
 -- one imperative program passing value to another:
 prg2 = do
   line <- getLine
-  putStrLn ("you typed: " ++ line)
+  if line == "" then putStrLn ("you typed nothing") else putStrLn ("you typed: " ++ line)
 
 main =
   do
