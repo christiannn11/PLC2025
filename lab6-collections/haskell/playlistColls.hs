@@ -54,7 +54,7 @@ playlist2 = [piece2, advert1]
 
 playlists = [playlist1, playlist2] -- a list of lists
 
-adsFromPlaylists = [item_length_secs item | item <- playlist1, item_length_secs item < 20] -- TASK 6.4(b)
+adsFromPlaylists = [item | list <- playlists, item <- list, isAdvert item] -- TASK 6.4(b)
 
 shortItemLenghts1 = "todo" -- TASK 6.4(a)
 
@@ -69,3 +69,6 @@ main =
     printf "playlists = %s\n" (show playlists)
     printf "adsFromPlaylists = %s\n" (show adsFromPlaylists)
 
+-- Q6 answer: haskells itemOK checks validity only when called which means that 
+--            invalid items can be created. pythons check runs automatically
+--            when creating an object which means that invalid items CANNOT be created
